@@ -4,6 +4,12 @@
 //  Description: Final Assembly
 // -------------------------------------------
 
+/* -The Grocery Store Inventory System is able to print a detailed list of all items in the inventory, 
+ search and display an item by its SKU number, checkout an item to be delivered to the shelf for sale, 
+ add to stock items that are recently purchased for inventory, and add a new item to the inventory or update
+ an already existing item. */
+
+
 #include <stdio.h>
 #define LINEAR 1
 #define FORM 0
@@ -85,7 +91,7 @@ int loadItems(struct Item item[], char fileName[], int* NoOfRecsPtr);
 
 
 // ----------------------------------------
-// place function DEFINITIONS below here...
+// FUNCTION DEFINITIONS
 // ----------------------------------------
 
 //Print header - Program name
@@ -95,7 +101,7 @@ void welcome(void)
 	printf("\n");
 	return;
 }
-//----------------------------------------------------------------------------------------------+
+
 
 
 //Print header - Title
@@ -105,7 +111,6 @@ void printTitle(void)
 	printf("----+---+--------------------+--------+-----+-----+-----+------------|---\n");
 	return;
 }
-//----------------------------------------------------------------------------------------------+
 
 
 //Print footer Without and with "Grand Total"
@@ -119,7 +124,7 @@ void printFooter(double gTotal)
 	}
 	return;
 }
-//---------------------------------------------------------------------------------------------+
+
 
 
 //flushkeyboard - clear keyboard until the user hit <ENTER>
@@ -128,7 +133,6 @@ void flushKeyboard(void)
 	while (getchar() != '\n')
 		;
 }
-//----------------------------------------------------------------------------------------------+
 
 
 //Pauses the execution of the application
@@ -139,7 +143,6 @@ void pause(void)
 	while (getchar() != '\n')
 		;
 }
-//----------------------------------------------------------------------------------------------+
 
 
 //Gets a valid interger from the keyboard and returns it
@@ -159,7 +162,6 @@ int getInt(void)
 	}
 	return getInterger;
 }
-//---------------------------------------------------------------------------------------------+
 
 
 //This function makes sure the interger is whithin a determined limit
@@ -177,7 +179,6 @@ int getIntLimited(int lowerLimit, int upperLimit)
 
 	return tempInterger;
 }
-//----------------------------------------------------------------------------------------------+
 
 
 //Gets a valid doulbe from the keyboard and returns it
@@ -197,7 +198,6 @@ double getDouble(void)
 	}
 	return getDouble;
 }
-//----------------------------------------------------------------------------------------------+
 
 
 //This function makes sure the double entered is whithin a determined limit
@@ -217,7 +217,6 @@ double getDoubleLimited(double lowerLimit, double upperLimit)
 
 	return tempDouble;
 }
-//-------------------------------------------------------------------------------------------------+
 
 
 //Receives a single character from the user: (Y) or (N)
@@ -249,7 +248,6 @@ int yes(void)
 
 	return exitInput;
 }
-//----------------------------------------------------------------------------------------------+
 
 
 //Menu prints the following options
@@ -270,7 +268,6 @@ int menu(void)
 
 	return option;
 }
-//----------------------------------------------------------------------------------------------+
 
 
 //Receives an Item and returns the total inventory price of the product
@@ -290,7 +287,6 @@ double totalAfterTax(struct Item item)
 	}
 	return totalInvPrice;
 }
-//-----------------------------------------------------------------------------------------------+
 
 
 //Receives an Item and returns true (1) if the Item quantity is less than Item 
@@ -305,7 +301,7 @@ int isLowQuantity(struct Item item)
 	}
 	return flag;
 }
-//------------------------------------------------------------------------------------------------+
+
 
 //This function receives an integer argument for sku and creates an Item and 
 //sets its sku to the sku argument value.
@@ -329,7 +325,6 @@ struct Item itemEntry(int sku)
 
 	return itemEntry;
 }
-//-------------------------------------------------------------------------------------------------+
 
 
 //This function receives two arguments:  an Item and an integer flag  
@@ -389,7 +384,7 @@ void displayItem(struct Item item, int linear)
 		}
 	}
 }
-//-------------------------------------------------------------------------------------------------+
+
 
 
 //This function receives a constant array of Items and their number and 
@@ -412,7 +407,7 @@ void listItems(const struct Item item[], int noOfItems)
 	}
 	printFooter(gTotalProd);
 }
-//-------------------------------------------------------------------------------------------------+
+
 
 
 //Receives a constant array of items and their number and also a SKU to look
@@ -434,7 +429,7 @@ int locateItem(const struct Item item[], int NoOfRecs, int sku, int* index)
 	}
 	return flag;
 }
-//-------------------------------------------------------------------------------------------------+
+
 
 
 // receives an array of items and its size and searches through the array for an Item
@@ -460,7 +455,7 @@ void search(const struct Item item[], int NoOfRecs)
 		printf("Item not found!\n");
 	}
 }
-//-------------------------------------------------------------------------------------------------+
+
 
 
 // The function receives the address of the Item to update 
@@ -486,7 +481,7 @@ void updateItem(struct Item* itemptr)
 		printf("--== Aborted! ==--\n");
 	}
 }
-//-------------------------------------------------------------------------------------------------+
+
 
 
 //If the item array is not full, this function will ask the user to enter the data
@@ -519,7 +514,7 @@ void addItem(struct Item item[], int *NoOfRecs, int sku)
 		}
 	}
 }
-//-------------------------------------------------------------------------------------------------+
+
 
 
 //Receives an SKU from the user and updates or adds an Item in an array of Items 
@@ -555,7 +550,7 @@ void addOrUpdateItem(struct Item item[], int* NoOfRecs)
 		addItem(item, &*NoOfRecs, getSKU);
 	}
 }
-//-------------------------------------------------------------------------------------------------+
+
 
 
 //Depending on the value of the stock argument being 
@@ -626,7 +621,7 @@ void adjustQuantity(struct Item item[], int NoOfRecs, int stock)
 	}
 
 }
-//-------------------------------------------------------------------------------------------------+
+
 
 
 //This function writes content of an Item, comma separated, in one line of a text file
@@ -638,7 +633,6 @@ void saveItem(struct Item item, FILE* dataFile)
 
 }
 
-//-------------------------------------------------------------------------------------------------+
 
 
 // This function reads all the fields of an Item from one line of a comma separated
@@ -656,7 +650,7 @@ int loadItem(struct Item* item, FILE* dataFile)
 	}
 	return returnValue;
 }
-//-------------------------------------------------------------------------------------------------+
+
 
 
 // saveItems uses the saveItem function to write an entire array of Items into a file.
@@ -682,7 +676,7 @@ int saveItems(const struct Item item[], char fileName[], int NoOfRecs)
 	}
 	return rv;
 }
-//-------------------------------------------------------------------------------------------------+
+
 
 
 //loadItems uses the loadItem function to read all the records saved in a file 
@@ -712,7 +706,7 @@ int loadItems(struct Item item[], char fileName[], int* NoOfRecsPtr)
 
 	return rv;
 }
-//-------------------------------------------------------------------------------------------------+
+
 
 
 //This function avoids redundancy in case 3, 4 and 5 of the GroceryInventorySystem function
@@ -726,7 +720,6 @@ void saveItemsRedundancy(struct Item item[], char fileName[], int NoOfRecs)
 		printf("could not update data file %s\n", DATAFILE);
 	}
 }
-//-------------------------------------------------------------------------------------------------+
 
 
 //Heart of the application, run the whole program
@@ -798,7 +791,6 @@ void GroceryInventorySystem(void)
 		} while (flag == 0);
 	}
 }
-//-------------------------------------------------------------------------------------------------+
 
 
 //main function
