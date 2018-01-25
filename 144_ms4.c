@@ -1,6 +1,5 @@
 // -------------------------------------------
 //  Name: Gilberto Wagner Miranda da Silva
-//  ID: 139236160
 //  Email: gilbertowms@gmail.com
 //  Description: Final Assembly
 // -------------------------------------------
@@ -335,7 +334,7 @@ struct Item itemEntry(int sku)
 
 //This function receives two arguments:  an Item and an integer flag  
 //called linear and prints an Item on screen in two different formats 
-//depending on the value of “linear” flag being true or false.
+//depending on the value of Â“linearÂ” flag being true or false.
 void displayItem(struct Item item, int linear)
 {
 	double totalPlusTaxes;
@@ -563,7 +562,7 @@ void addOrUpdateItem(struct Item item[], int* NoOfRecs)
 //STOCK or CHECKOUT, this function will increase or reduce the quantity 
 //of the selected Item in the array by the value received from the user.
 //If stocking, (adding to storage) this value can vary 
-//between 0 to(MAX_QTY – item_quantity) and 
+//between 0 to(MAX_QTY Â– item_quantity) and 
 //if checking out(removing from storage) this value can vary 
 //between 0 to item_quantity.
 void adjustQuantity(struct Item item[], int NoOfRecs, int stock)
@@ -644,7 +643,7 @@ void saveItem(struct Item item, FILE* dataFile)
 
 // This function reads all the fields of an Item from one line of a comma separated
 //text file using fscanf  and stores them in the Item structure that is pointed 
-// by the “item” pointer in the argument list. 
+// by the Â“itemÂ” pointer in the argument list. 
 int loadItem(struct Item* item, FILE* dataFile)
 {
 	int rv;
@@ -687,7 +686,7 @@ int saveItems(const struct Item item[], char fileName[], int NoOfRecs)
 
 
 //loadItems uses the loadItem function to read all the records saved in a file 
-//into the “item” array and sets the target of the “NoOfRecsPtr” to the number 
+//into the Â“itemÂ” array and sets the target of the Â“NoOfRecsPtrÂ” to the number 
 //of Items read from the file. 
 int loadItems(struct Item item[], char fileName[], int* NoOfRecsPtr)
 {
