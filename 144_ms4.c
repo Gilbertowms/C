@@ -1,6 +1,5 @@
 // -------------------------------------------
 //  Name: Gilberto Wagner Miranda da Silva
-//  Email: gilbertowms@gmail.com
 //  Description: Final Assembly
 // -------------------------------------------
 
